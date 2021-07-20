@@ -128,12 +128,7 @@ export default {
 					return;
 				}
 
-				if (dependency.hasOwnProperty('notArray') && -1 === dependency.notArray.indexOf(dependencyValue)) {
-					this.dependenciesSatisfied = true;
-					return;
-				}
-
-				if (dependency.hasOwnProperty('not') && dependencyValue != dependency.not) {
+				if (dependency.hasOwnProperty('not') && -1 === dependency.not.indexOf(dependencyValue)) {
 					this.dependenciesSatisfied = true;
 					return;
 				}
