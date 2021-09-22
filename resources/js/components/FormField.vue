@@ -118,7 +118,7 @@ export default {
 					return;
 				}
 
-				if (dependency.hasOwnProperty('notEmpty') && dependencyValue) {
+				if ((dependency.hasOwnProperty('notEmpty') && (toString(dependencyValue).length !== 0))) {
 					this.dependenciesSatisfied = true;
 					return;
 				}
