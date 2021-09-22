@@ -128,7 +128,8 @@ export default {
 					return;
 				}
 
-				if (dependency.hasOwnProperty('not') && -1 === dependency.not.indexOf(dependencyValue)) {
+				// add check for 'and not null'
+				if (dependency.hasOwnProperty('not') && (-1 === dependency.not.indexOf(dependencyValue)) && !(-1 < [undefined, null, 0, '0'].indexOf(dependencyValue))) {
 					this.dependenciesSatisfied = true;
 					return;
 				}
