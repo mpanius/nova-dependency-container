@@ -113,12 +113,13 @@ export default {
 
 				// #93 compatability with flexible-content, which adds a generated attribute for each field
 				let dependencyValue = this.dependencyValues[(this.field.attribute + dependency.field)];
+				console.log(dependencyValue);
 				if (dependency.hasOwnProperty('empty') && !dependencyValue) {
 					this.dependenciesSatisfied = true;
 					return;
 				}
 
-				if ((dependency.hasOwnProperty('notEmpty') && (toString(dependencyValue).length !== 0))) {
+				if (dependency.hasOwnProperty('notEmpty') && (typeof dependencyValue !== 'undefined')) {
 					this.dependenciesSatisfied = true;
 					return;
 				}
